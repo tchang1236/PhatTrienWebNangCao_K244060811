@@ -1,0 +1,52 @@
+<div style="padding: 20px;">
+  <h2>Bài 14: Json Array Model - Product - Catalog</h2>
+
+  <!-- Vòng lặp 1: Duyệt từng danh mục -->
+  <div *ngFor="let cate of categories14" style="margin-bottom: 25px;">
+    
+    <!-- Bảng cha: Thông tin danh mục -->
+    <table class="catalog-table" border="1" cellpadding="8">
+      <thead>
+        <tr style="background-color: #f2f2f2;">
+          <th style="width: 50%;">Ma Danh Muc</th>
+          <th style="width: 50%;">Ten Danh Muc</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ cate.Cateid }}</td>
+          <td>{{ cate.CateName }}</td>
+        </tr>
+        <tr>
+          <td colspan="2" style="padding: 10px;">
+            
+            <!-- Bảng con: Thông tin sản phẩm thuộc danh mục đó -->
+            <table class="catalog-table__products" border="1" cellpadding="8">
+              <thead>
+                <tr style="background-color: #e6e6e6;">
+                  <th>Ma San Pham</th>
+                  <th>Ten San Pham</th>
+                  <th>Gia San Pham</th>
+                  <th>Picture</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Vòng lặp 2: Duyệt từng sản phẩm trong danh mục -->
+                <tr *ngFor="let p of cate.Products">
+                  <td>{{ p.ProductId }}</td>
+                  <td>{{ p.ProductName }}</td>
+                  <td>{{ p.Price }}</td>
+                  <td style="text-align: center;">
+                    <img [src]="p.Image" [alt]="p.ProductName" width="60" height="60" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

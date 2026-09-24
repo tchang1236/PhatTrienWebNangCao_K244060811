@@ -1,0 +1,11 @@
+.catalog-table {
+	width: fit-content;
+	max-width: 100%;
+	border-collapse: collapse;
+}
+
+.catalog-table__products {
+	width: max-content;
+	max-width: 100%;
+	border-collapse: collapse;
+}

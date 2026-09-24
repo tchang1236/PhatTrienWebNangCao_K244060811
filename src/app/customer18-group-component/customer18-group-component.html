@@ -1,0 +1,39 @@
+<div class="container" style="margin: 20px;">
+  <h2>Bài 18 - Json Array Model - Group Customers</h2>
+
+  <div *ngIf="errMessage" style="color: red; margin-bottom: 10px;">
+    {{ errMessage }}
+  </div>
+
+  <table border="1" style="border-collapse: collapse; width: 100%; text-align: left;" *ngIf="!errMessage">
+    <thead>
+      <tr style="background-color: #f2f2f2;">
+        <th style="width: 10%; padding: 8px;">Id</th>
+        <th style="width: 20%; padding: 8px;">Name</th>
+        <th style="width: 30%; padding: 8px;">Email</th>
+        <th style="width: 10%; padding: 8px;">Age</th>
+        <th style="width: 30%; padding: 8px;">#</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Vòng lặp 1: Duyệt qua từng nhóm khách hàng (VIP, Normal) -->
+      <ng-container *ngFor="let group of customerGroups18">
+        <!-- Hàng hiển thị tên nhóm -->
+        <tr style="background-color: #e6e6e6; font-weight: bold;">
+          <td colspan="5" style="padding: 8px;">{{ group.CustomerTypeId }} - {{ group.CustomterTypeName }}</td>
+        </tr>
+
+        <!-- Vòng lặp 2: Duyệt từng khách hàng trong nhóm -->
+        <tr *ngFor="let cus of group.Customers">
+          <td style="padding: 8px;">{{ cus.Id }}</td>
+          <td style="padding: 8px;">{{ cus.Name }}</td>
+          <td style="padding: 8px;">{{ cus.Email }}</td>
+          <td style="padding: 8px;">{{ cus.Age }}</td>
+          <td style="padding: 8px;">
+            <img [src]="cus.Image" [alt]="cus.Name" style="width: 120px; height: auto;" />
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

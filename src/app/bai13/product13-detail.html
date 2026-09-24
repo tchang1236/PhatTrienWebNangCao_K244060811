@@ -1,0 +1,22 @@
+<p>product13-detail works!</p>
+<button (click)="goBack()">Go Back</button>
+
+<table border="1" *ngIf="selectedProduct" style="margin-top: 10px; border-collapse: collapse; padding: 10px;">
+  <tr>
+    <td><b>ID:</b></td>
+    <td>{{selectedProduct.ProductId}}</td>
+  </tr>
+  <tr>
+    <td><b>Name:</b></td>
+    <td>{{selectedProduct.ProductName}}</td>
+  </tr>
+  <tr>
+    <td><b>Price:</b></td>
+    <td>{{selectedProduct.Price}}</td>
+  </tr>
+  <tr>
+    <td colspan="2" style="text-align: center;">
+      <img [src]="selectedProduct.Image" width="120" />
+    </td>
+  </tr>
+</table>
